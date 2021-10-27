@@ -1,0 +1,26 @@
+name: mirror-content
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mirror-to-binder-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: olivr/copybara-action@v1.2.3
+        with:
+          access_token: ${{ github.token }}
+          ssh_key: ${{ secrets.SSH_KEY }}
+          sot_repo: ${{ github.repository }}
+          sot_branch: main
+          destination_repo: ${{ github.repository }}
+          destination_branch: binder
+          push_include: "binder/**"
+          push_move: |
+            binder||.binder
+          workflow: push

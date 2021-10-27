@@ -1,0 +1,18 @@
+name: build-binder
+on:
+  workflow_run:
+    workflows: [mirror-content]
+    types:
+      - completed
+
+jobs:
+  build-binder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: s-weigand/trigger-mybinder-build@v1
+        with:
+          target-repo: ${{ github.repository }}
+          service-name: gh
+          target-state: binder
+          use-default-build-servers: true
+          debug: false
