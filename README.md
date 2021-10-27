@@ -1,4 +1,4 @@
-# Terminal via Binder
+# Online Linux Terminal via Binder
 
 [![launch binder](https://mybinder.org/badge_logo.svg)][binder-link]&nbsp;
 [![mirror content][mirror-content-badge]](../../actions/workflows/mirror-content.yml)&nbsp;
