@@ -2,6 +2,7 @@ name: terminal
 channels:
   - conda-forge
 dependencies:
-  - notebook==5.7.11
+  - notebook
   - python
   - nano
+  - jq
