@@ -1,0 +1,5 @@
+#!/bin/bash
+url=$(jupyter notebook list --json | jq .url | tr -d '"')
+token=$(jupyter notebook list --json | jq .token | tr -d '"')
+curl -X POST "${url}api/terminals?token=${token}"
+exec "$@"
